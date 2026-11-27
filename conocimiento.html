@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Base de conocimiento · SIA TI</title>
+  <meta name="description" content="Gestión de artículos de la base de conocimiento">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/layout.css">
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <div id="navbar-root"></div>
+
+  <main class="container" id="contenido">
+    <header class="page-header">
+      <div>
+        <h1 class="page-header__title">Base de conocimiento</h1>
+        <p class="page-header__subtitle">Administre los artículos técnicos que alimentan al asistente inteligente.</p>
+      </div>
+      <div class="page-header__actions">
+        <button type="button" class="btn btn-secondary" id="btn-reindex">⟳ Reindexar</button>
+        <button type="button" class="btn btn-primary" id="btn-new">＋ Nuevo artículo</button>
+      </div>
+    </header>
+
+    <div class="alert alert--info section" role="note">
+      Solo los artículos <strong>activos</strong> y <strong>verificados</strong> son elegibles como fuentes de conocimiento para el asistente.
+    </div>
+
+    <section class="card section" aria-label="Búsqueda y filtros">
+      <form id="filters-form" class="toolbar" novalidate>
+        <div class="form-group toolbar__search">
+          <label class="form-label" for="f-search">Buscar artículos</label>
+          <input class="input" type="search" id="f-search" placeholder="Título, problema, síntomas, causa o solución" autocomplete="off">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="f-state">Elegibilidad</label>
+          <select class="select" id="f-state">
+            <option value="">Todos</option>
+            <option value="eligible">Elegibles (activo + verificado)</option>
+            <option value="inactive">Inactivos</option>
+            <option value="unverified">Sin verificar</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="f-category">Categoría</label>
+          <select class="select" id="f-category"><option value="">Todas</option></select>
+        </div>
+      </form>
+    </section>
+
+    <section class="section" aria-live="polite" aria-label="Listado de artículos">
+      <div id="articles-table"></div>
+    </section>
+  </main>
+
+  <footer class="footer">SIA TI · Sistema inteligente de análisis de incidentes tecnológicos</footer>
+
+  <script type="module" src="js/pages/conocimiento.js"></script>
+</body>
+</html>
